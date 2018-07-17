@@ -1,0 +1,23 @@
+.new-tweet {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0.5em;
+    flex-direction: column;
+    display: flex;
+    border-width: 1px;
+ }
+
+
+ .underline{
+    border-bottom: 1px dotted #c03;
+    width: 100%;
+    display: block;
+}
+
+ .counter {
+    float:right;
+ }
+
+ .counterred {
+    color:red;
+ }
