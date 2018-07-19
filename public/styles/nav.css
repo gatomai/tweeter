@@ -27,18 +27,13 @@
 	background: #eee;
 	border: 1px solid black;
 	border-radius: 5px;
-	color: white;
+	color: black;
 	float: right;
-	line-height: 2;
 	position: relative;
 	top: 20px;
-
+	line-height: 2;
 }
 .composebtn:hover {
 	box-shadow: 0 12px 16px;
 	opaticyt: 0.8;
-}
-.composebtn:active {
-	position:relative;
-	top:1px;
 }

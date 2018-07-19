@@ -1,7 +1,10 @@
 .new-tweet {
     border: 1px solid black;
+    background: #eee;
     border-radius: 5px;
     padding: 0.5em;
+    position: relative;
+    top: 1px;
     flex-direction: column;
     display: flex;
     border-width: 1px;
@@ -11,6 +14,16 @@
 
 .new-tweet-area {
     height: 4em;
+}
+
+main .new-tweet {
+    background-color: #eee;
+    border-radius: 5px;
+    border: 1px solid #999;
+    left: 20px;
+    padding: 10px;
+    position: relative;
+    width: 90%;
 }
 
 textarea {
