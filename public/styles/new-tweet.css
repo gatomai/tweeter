@@ -5,7 +5,60 @@
     flex-direction: column;
     display: flex;
     border-width: 1px;
+    background-color:#ececec;
+    border-style: solid;
  }
+
+.new-tweet-area {
+    height: 4em;
+}
+
+textarea {
+    width: 100%;
+}
+
+.tweet {
+    border: 1px solid black;
+    border-color: #bdbdbd;
+    border-style: solid;
+    background-color: white;
+}
+
+.tweet header  {    
+    background-color: #f3f3f3
+}
+
+.tweet h2  {    
+    text-align: right;
+}
+
+.tweet img {
+    width: 55px;
+    height: 55px;
+    border-width: 1px;
+    border-radius: 5px;
+    background-color: cyan;
+    margin-top: 7px;
+    margin-left:15px;
+    margin-right: 10px;
+}
+
+.tweet-name {
+   float: left;
+}
+
+.tweet-username {
+    float: right;
+}
+
+.tweet .tweet-body {
+    height: 100px;
+}
+
+.tweet:hover {
+    border: yellow 5px;
+}
+
 
 
  .underline{

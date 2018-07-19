@@ -21,10 +21,6 @@
   <!-- External JS -->
   <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
-  <!-- App JS -->
-  <script type="text/javascript" src="/scripts/app.js"></script>
-
-  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
 </head>
 
@@ -34,6 +30,10 @@
   <nav id="nav-bar">
     <img class="logo" src="/images/bird.png" />
     <span class="header">Tweeter</span>
+    <span class="compose">
+      <button class=composebtn">Compose</button>
+      <!-- <a href="#" class="myButton">Compose</a> -->
+    </span>
   </nav>
 
   <br>
@@ -47,14 +47,43 @@
      </span>
       <form>
         <textarea name="text" placeholder="What are you humming about?"></textarea><br>
-        <input type="submit" value="Tweet">
+        <input type="submit" id="twtBtn" value="Tweet">
         <span class="counter">140</span>
       </form>
     </section>
 
+    <div class="tweets-container">
+      <!-- <article class="tweet">
+        <header>
+          <img class="logo" src="/images/bill-fields.png" />        
+          <span class="tweet-name">Bill Fields</span>
+          <span class="tweet-username">@MrFields</span>
+        </header>
+    
+        <div class="tweet-body">
+          <p>
+            Little tweet here
+          </p>
+        </div>
+    
+        <footer>
+          <p>
+            10 days ago
+          </p>
+        </footer>
+      </article> -->
+    </div>
+
+
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/app.js"></script>
+
+  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
+
   </main>
 
-  
+
 
 </body>
 
