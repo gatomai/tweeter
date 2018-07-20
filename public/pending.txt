@@ -1,0 +1,5 @@
+Pending:
+"Flag", "Re-tweet" and "Like" icons upon hovering over the tweet, on the right
+Error Message closed for zero size
+Clear the text area after tweet is posted
+Time conversion

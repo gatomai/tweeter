@@ -79,7 +79,7 @@ function createTweetElement(tweetObject) {
   <span class="tweet-username">${escape(tweetObject.user.handle)}</span>
   </header>
 
-  <div-class="tweet-body">
+  <div class="tweet-body">
   <p>
   ${escape(tweetObject.content.text)}
   </p>
@@ -89,6 +89,7 @@ function createTweetElement(tweetObject) {
   ${tweetObject.created_at}
   </p>
   </footer>
+  <i class="far fa-flag"></i>
   </article>
   `;
   $tweet = $tweet.append(html);
@@ -107,6 +108,8 @@ function renderTweets(tweets) {
   $(".tweets-container").html($html);
 }
 
+
+
 function OnLoadPage() {
   $("form").on("submit", function (event) {
     event.preventDefault();
@@ -115,9 +118,14 @@ function OnLoadPage() {
     // console.log(twt_length.length);
 
     if (twt_length.length > 140) {
-      alert('Exceeded the 140 char limit');
+      // alert('Exceeded the 140 char limit');
+      // $('.error').html('Exceeded the 140 char limit');
+      $(".error").html('Exceeded the 140 char limit');
+      $(".error").slideToggle("slow");
     } else if (twt_length.length === 0) {
-      alert('Need to enter a Tweet');
+      // alert('Need to enter a Tweet');
+      $(".error").html('Need to enter a Tweet');
+      $(".error").slideToggle("slow");
     } else {
       $.ajax({
         type: "POST",
@@ -146,6 +154,10 @@ function escape(str) {
   return div.innerHTML;
 }
 
+function errorNotif() {
+      $(".new-tweet").slideToggle("slow");
+}
+
 function slideTweet() {
     $(".composebtn").click(function(){
         $(".new-tweet").slideToggle("slow");
@@ -162,7 +174,7 @@ function loadTweets() {
 }
 
 $(document).ready(function () {
-  loadTweets();
+  loadTweets();  
   slideTweet();
 
   // console.log('I am here');
@@ -172,7 +184,6 @@ $(document).ready(function () {
   OnLoadPage();
   var $button = $('#twtBtn');
   $button.on('click', function () {
-
     loadTweets();    
   });
 

@@ -1,0 +1,30 @@
+To create a feature branch mongodb:
+---------------------------------------------
+git branch feature/mongodb
+git branch
+git checkout -b feature/mongodb
+
+To verify that no files are orphaned
+------------------------------------
+git status
+
+To Merge to Master:
+-------------------
+git branch (Should be in respective feature branch)
+git add .
+git commit -m "Message"
+------->  (git push --set-upstream origin feature/user-registration)
+------->  (git push --set-upstream origin feature/cookies)
+------->  (git push --set-upstream origin feature/specific-features)
+
+git checkout master
+git merge feature/user-registration
+git merge feature/cookies
+git merge feature/specific-features
+
+git branch
+
+
+---------------------------------------
+--Install MongoDB driver
+npm install mongodb@2.2 --save
