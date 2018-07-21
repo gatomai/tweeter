@@ -6,6 +6,7 @@
     padding-right: 2em;
     background-color: #00a087;
     top: 0px;
+    z-index: 1;
 }
 
 #nav-bar .header {
@@ -35,5 +36,5 @@
 }
 .composebtn:hover {
 	box-shadow: 0 12px 16px;
-	opaticyt: 0.8;
+	opacity: 0.8;
 }

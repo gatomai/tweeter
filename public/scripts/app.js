@@ -3,8 +3,8 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-
-// const tweetData = {
+// INITIAL TEST DATA 
+ // const tweetData = {
 //   "user": {
 //     "name": "Newton",
 //     "avatars": {
@@ -68,6 +68,7 @@
 //   }
 // ];
 
+// Function to create One basic Tweet Article
 function createTweetElement(tweetObject) {
   $tweet = $("<article>").addClass("tweet");
 
@@ -86,18 +87,24 @@ function createTweetElement(tweetObject) {
   </div>
   <footer>
   <p>
-  ${tweetObject.created_at}
+  ${getElapsedTime(tweetObject.created_at)}
   </p>
+  <span>
+  <i class="fa fa-flag" aria-hidden="true"></i>
+  <i class="fa fa-retweet" aria-hidden="true"></i>
+  <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
   </footer>
-  <i class="far fa-flag"></i>
   </article>
   `;
   $tweet = $tweet.append(html);
   $('.tweets-container').append($tweet);
-  console.log($tweet);
+  // console.log($tweet);
   return $tweet;
 }
 
+
+// Function to show recently created Tweet and show all older Tweets
 function renderTweets(tweets) {
   var $html = $('<div></div>');
   $(".tweets-container").empty();
@@ -108,90 +115,94 @@ function renderTweets(tweets) {
   $(".tweets-container").html($html);
 }
 
+// Function to show the elapsed time since the tweet was posted
+function getElapsedTime(date) {
 
+  var currentDate = Date.now();
 
+  var elapsedSeconds = (currentDate - date) / 1000 / 60;
+  var elapsedMinutes = (currentDate - date) / 1000 / 60;
+  var elapsedHours = (currentDate - date) / 1000 / 60 / 60;
+
+  if (elapsedMinutes < 1) {
+    return `${Math.floor(elapsedSeconds)} second(s) ago`;
+  } else if (elapsedMinutes > 1 && elapsedMinutes < 60) {
+    return `${Math.floor(elapsedMinutes)} minute(s) ago`;
+  } else if (elapsedMinutes > 60 && elapsedHours < 24) {
+    return `${Math.floor(elapsedHours)} hour(s) ago`;
+  } else if (elapsedHours > 24) {
+    return `${Math.floor(elapsedHours / 24)} day(s) ago`;
+  }
+}
+
+// Function to validate the input entered into the Text Area and also POST the Tweet
 function OnLoadPage() {
   $("form").on("submit", function (event) {
     event.preventDefault();
     var twt = $(this).serialize();
     var twt_length = $(".new-tweet textarea").val();
-    // console.log(twt_length.length);
 
-    if (twt_length.length > 140) {
-      // alert('Exceeded the 140 char limit');
-      // $('.error').html('Exceeded the 140 char limit');
+    if ($(".new-tweet textarea").val().length > 140) {
       $(".error").html('Exceeded the 140 char limit');
       $(".error").slideToggle("slow");
-    } else if (twt_length.length === 0) {
-      // alert('Need to enter a Tweet');
+    } else if ($(".new-tweet textarea").val().length === 0) {
       $(".error").html('Need to enter a Tweet');
       $(".error").slideToggle("slow");
     } else {
+      $(".error").slideToggle("slow");
       $.ajax({
         type: "POST",
         url: "/tweets",
         data: twt,
         success: function (data) {
-          console.log('Success', twt);
+          // console.log('Success', twt);
           loadTweets();
+          clearFields();
         }
       });
     }
-    // console.log(twt_length.length);
-
-    // event.preventDefault();
-    // $(".new-tweet textarea").text($(".new-tweet textarea"));
-    // console.log($(".new-tweet textarea").val()); 
-    // const safeHTML = `<p>${escape($(".new-tweet textarea").val())}</p>`;
-    // console.log(safeHTML);
-
   });
 }
 
+// Function to reset all text fields on the form
+function clearFields() {
+  document.forms[0].reset();
+}
+
+// Function to strip any XSS code
 function escape(str) {
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 }
 
-function errorNotif() {
-      $(".new-tweet").slideToggle("slow");
-}
-
+// Function to slide the rendered tweets up and select the text area
 function slideTweet() {
-    $(".composebtn").click(function(){
-        $(".new-tweet").slideToggle("slow");
-        $('textarea').trigger('select');
-    });
+  $(".composebtn").click(function () {
+    $(".new-tweet").slideToggle("slow");
+    $('textarea').trigger('select');
+  });
 }
 
+// Function to load all the tweets from the Database
 function loadTweets() {
-  // console.log('Button clicked, performing ajax call...');    
   $.ajax('/tweets', { method: 'GET' })
     .then(function (resp, err) {
       renderTweets(resp);
     });
 }
 
+// When the document is all loaded, run the above functions
 $(document).ready(function () {
-  loadTweets();  
+  loadTweets();
   slideTweet();
 
-  // console.log('I am here');
-  // var $tweet = createTweetElement(tweetData);
-  // var $tweet = renderTweets(data);
-
   OnLoadPage();
+
   var $button = $('#twtBtn');
   $button.on('click', function () {
-    loadTweets();    
+    loadTweets();
   });
 
 
 });
-
-
-// Test / driver code (temporary)
-//   console.log($tweet); // to see what it looks like
-//   $('#tweets-container').append($tweet); 
-// to add it to the page so we can make sure it's got all the right elements, classes, etc.

@@ -1,3 +1,4 @@
+// Source code to keep track of the word Counter
 $(document).ready(function () {
   $('textarea').on('keyup', function () {
     var chars = "";
@@ -12,9 +13,8 @@ $(document).ready(function () {
     // console.log(running_counter);
     running_counter.text(chars_left);
 
-    if (chars_left > 140) {
+    if (chars_left < 0 ) {
       running_counter.addClass('counterred');
-      // alert('You have entered too many characters');
     } else {
       running_counter.removeClass('counterred');
     }
