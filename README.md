@@ -25,17 +25,13 @@ It is a web application built on HTML, CSS, JS, jQuery and AJAX on the front end
 ## Final Product
 
 Main Tweet Page
-!["Screenshot of Main Page"]
-(https://github.com/gatomai/tweeter/blob/master/docs/tweet-main-screen.png)
+!["Screenshot of Main Page"](https://github.com/gatomai/tweeter/blob/master/docs/tweet-main-screen.png)
 
 Compose Animation Page
-!["Screenshot of Compose effect"]
-(https://github.com/gatomai/tweeter/blob/master/docs/compose-animation.png)
+!["Screenshot of Compose effect"](https://github.com/gatomai/tweeter/blob/master/docs/compose-animation.png)
 
 Error on Empty Tweet
-!["Error - Empty Tweet"]
-(https://github.com/gatomai/tweeter/blob/master/docs/error-empty-tweet.png)
+!["Error - Empty Tweet"](https://github.com/gatomai/tweeter/blob/master/docs/error-empty-tweet.png)
 
 Error on Oversized Tweet
-!["Error - Oversized Tweet"]
-(https://github.com/gatomai/tweeter/blob/master/docs/error-oversized-tweet.png)
+!["Error - Oversized Tweet"](https://github.com/gatomai/tweeter/blob/master/docs/error-oversized-tweet.png)
