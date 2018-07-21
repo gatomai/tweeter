@@ -5,7 +5,7 @@ $(document).ready(function () {
     var txtarea_len = $(this).val().length;
 
     var chars_left = 140 - txtarea_len;
-    console.log(chars_left);
+    // console.log(chars_left);
 
     var running_counter = $(this).siblings('.counter');
 

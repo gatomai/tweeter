@@ -167,6 +167,7 @@ function OnLoadPage() {
 // Function to reset all text fields on the form
 function clearFields() {
   document.forms[0].reset();
+  $(".counter").text("140");
 }
 
 // Function to strip any XSS code
