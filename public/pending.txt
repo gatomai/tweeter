@@ -1,6 +1,0 @@
-Pending:
-X- "Flag", "Re-tweet" and "Like" icons upon hovering over the tweet, on the right
-X- Error Message closed for zero size
-X- Clear the text area after tweet is posted
-X- Time conversion
-X- Hover on Old Tweets
